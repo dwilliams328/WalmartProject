@@ -10,5 +10,5 @@ sealed class ApiResult<out T> {
     data object Uninitialized: ApiResult<Nothing>()
     data object Loading: ApiResult<Nothing>()
     data class Success<T>(override val data: T): ApiResult<T>()
-    data class Failure<T>(override val error: Throwable): ApiResult<T>()
+    data class Failure<out T>(override val error: Throwable): ApiResult<T>()
 }
